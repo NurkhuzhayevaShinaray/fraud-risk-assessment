@@ -14,9 +14,9 @@ Web application that estimates the risk of fraud in text messages and in audio/v
 ## Team
 | Member | Role | Responsibility |
 |---|---|---|
-| Student A | ML / NLP and speech | Fraud categories, datasets, text and speech models |
-| Нурхужаева Шинарай | Backend | REST API (Node.js/Express), PostgreSQL, ML integration, tests, API docs |
-| Student C | Frontend / research | Project brief, research evidence, UX (Figma), frontend |
+| Shahnaz Kissami | ML / NLP and speech | Fraud categories, datasets, text and speech models |
+| Shinaray Nurkhuzhayeva | Backend | REST API (Node.js/Express), PostgreSQL, ML integration, tests, API docs |
+| Saltanat Botabaeva | Frontend / research | Project brief, research evidence, UX (Figma), frontend |
 
 **Supervisor:** Серек Азамат Галымжанович
 
