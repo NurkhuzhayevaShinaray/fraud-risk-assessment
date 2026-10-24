@@ -1,0 +1,20 @@
+flowchart LR
+    U(["User"])
+    subgraph SYS["Fraud Risk Assessment System"]
+        UC1("Submit text and view<br/>risk result and recommendations")
+        UC2("Upload audio recording and view<br/>risk result and recommendations")
+        UC3("Browse educational materials")
+        UC4("Get Safety Assistant guidance")
+        UC5("View fraud news and alerts")
+    end
+    ML(["ML service<br/>(supporting system)"])
+    NS(["Verified news sources<br/>(supporting system)"])
+
+    U --- UC1
+    U --- UC2
+    U --- UC3
+    U --- UC4
+    U --- UC5
+    UC1 --- ML
+    UC2 --- ML
+    UC5 --- NS

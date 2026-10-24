@@ -1,0 +1,14 @@
+flowchart LR
+    U["User<br/>(general user, student,<br/>older adult, banking user)"]
+    subgraph SYS["System boundary"]
+        APP["Fraud Risk Assessment System<br/>(web application:<br/>frontend, backend, ML module, database)"]
+    end
+    N["Verified fraud news sources"]
+    M["Existing speech-to-text and<br/>text-analysis models and libraries"]
+    O["Official channels<br/>(police, banks, government services)"]
+
+    U -->|"submits text or audio;<br/>requests learning content and guidance"| APP
+    APP -->|"risk level, indicators,<br/>explanation, recommendations"| U
+    APP -->|"retrieves news items (HTTP)"| N
+    APP -->|"uses for transcription<br/>and text analysis"| M
+    APP -.->|"refers users to<br/>(no integration)"| O

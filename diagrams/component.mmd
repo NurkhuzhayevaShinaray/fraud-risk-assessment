@@ -1,0 +1,50 @@
+flowchart TB
+    subgraph FE["Frontend (HTML, CSS, JavaScript)"]
+        direction LR
+        P1["Home"]
+        P2["Fraud Checker"]
+        P3["Results and<br/>Recommendations"]
+        P4["Learn"]
+        P5["Safety Assistant"]
+    end
+
+    subgraph BE["Backend (Node.js, Express.js, TypeScript)"]
+        direction TB
+        R["REST API routes / controllers"]
+        V["Validation and upload middleware"]
+        AS["Analysis service"]
+        CS["Content service<br/>(Learn)"]
+        SS["Safety guidance service"]
+        NSV["News service"]
+        MC["ML client<br/>(timeout, error mapping)"]
+        DA["Data access layer"]
+        EH["Error handling and logging"]
+        TMP[("Temporary file storage<br/>(deleted after processing)")]
+    end
+
+    subgraph ML["ML service (Python)"]
+        direction LR
+        STT["Speech-to-text"]
+        TC["Text analysis"]
+        RA["Risk assessment"]
+        STT --> TC --> RA
+    end
+
+    DB[("PostgreSQL")]
+    NEWS["Verified news sources"]
+
+    FE -->|"HTTP: JSON, multipart/form-data"| R
+    R --> V
+    V --> AS
+    V --> CS
+    V --> SS
+    R --> NSV
+    AS --> TMP
+    AS --> MC
+    MC -->|"HTTP: JSON contract"| ML
+    CS --> DA
+    SS --> DA
+    NSV --> DA
+    DA --> DB
+    NSV -->|"HTTP"| NEWS
+    R -.-> EH
